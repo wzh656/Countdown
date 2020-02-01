@@ -2,4 +2,4 @@ Countdown
 ======
 倒计时
 
-[点击进入](https://wzh656.github.io/Countdown/index.html)
+<button onclick="open('https://wzh656.github.io/Countdown/index.html)')">点击进入</button>
