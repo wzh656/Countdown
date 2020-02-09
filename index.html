@@ -222,7 +222,10 @@ $.ajax({
 	success: function(data) {
 		eval("message="+data);
 		message=message["倒计时"];
-		if (typeof(message) != "object"){
+		if (typeof(message) == "object"){
+			alert(message["message"]);
+			message=message["date"];
+		}else{
 			alert("获取信息出错！\n点击退出");
 			window.close();
 		}
@@ -232,16 +235,6 @@ $.ajax({
 		window.close();
 	}
 });
-
-/*
-new_year=new Date(2020,0,1,0,0,0,0);
-exam=new Date(2020,0,13,8,0,0,0);
-spring_festival=new Date(2020,0,25,0,0,0,0);
-the_end_of_winter_vacation=new Date(2020,2,1,8,0,0,0);
-middle_exam=new Date(2021,6,1,8,0,0,0);
-high_exam=new Date(2024,6,1,8,0,0,0);
-die_time=new Date(2106,9,1,12,0,0,0);
-*/
 
 event.push(
 	setInterval(function(){
@@ -253,17 +246,6 @@ event.push(
 	},1)
 );
 
-/*
-event[0]=setInterval(function(){
-	time(new_year,document.getElementById("now"),document.getElementById("time1"),"new_year(2020)");
-	time(exam,document.getElementById("now"),document.getElementById("time2"),"FINAL-EXAM");
-	time(spring_festival,document.getElementById("now"),document.getElementById("time3"),"SPRING-FESTIVAL");
-	time(the_end_of_winter_vacation,document.getElementById("now"),document.getElementById("time4"),"THE-END-OF-WINTER-VACATION");
-	time(middle_exam,document.getElementById("now"),document.getElementById("time5"),"MIDDLE-EXAM");
-	time(high_exam,document.getElementById("now"),document.getElementById("time6"),"HIGH-EXAM");
-	time(die_time,document.getElementById("now"),document.getElementById("time7"),"DIE_TIME(live-to-be-100)");
-},0);
-*/
 var colors=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
 var choice_color=[0,0,0,0,0,0];
 var fx=[1,1,1];
