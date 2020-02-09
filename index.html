@@ -94,6 +94,9 @@ div.zhen{
 	border-radius:1px;
 }
 </style>
+
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+
 </head>
 <body bgcolor="#fa6">
 <h1>倒计时</h1>
@@ -121,13 +124,15 @@ div.zhen{
 </div>
 <button onclick="for (var i in event){clearTimeout(event[i]);};alert('STOP TIME\nsuccess');alert('BYE\n--FROM (TIME)');">STOP "TIME"</button>
 <hr>
-<div id="time1" style="background-color:red;border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
-<div id="time2" style="color:red;background-color:#a63;border:2px solid #000;"></div>
-<div id="time3" style="color:#666;background-color:red;border:2px solid #000;"></div>
-<div id="time4" style="color:red;background-color:#eee;border:2px solid #000;"></div>
-<div id="time5" style="color:red;background-color:#a63;border:2px solid #000;"></div>
-<div id="time6" style="color:red;color:red;background-color:#a63;border:2px solid #000;"></div>
-<div id="time7" style="color:white;border:2px solid #000;"></div>
+<div>
+	<div name="time" style="background-color:red;border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
+	<div name="time" style="color:red;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:#666;background-color:red;border:2px solid #000;"></div>
+	<div name="time" style="color:red;background-color:#eee;border:2px solid #000;"></div>
+	<div name="time" style="color:red;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:red;color:red;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:white;border:2px solid #000;"></div>
+</div>
 <p id="m">Time goes so quickly,but what are you doing?Are you preparing for the exam or playing games like DESK-GOOD(GOOD-TABLE)?</p>
 <script>
 m=document.getElementById("m");
@@ -208,6 +213,27 @@ function time(exam,that1,that2,txt){
 	}
 }
 
+var message;
+$.ajax({
+	type: "get",
+	url: "https://wzh656.github.io/notice/message.js",
+	dataType:'text',
+	async:false,
+	success: function(data) {
+		eval("message="+data);
+		message=message["倒计时"];
+		if (typeof(message) != "object"){
+			alert("获取信息出错！\n点击退出");
+			window.close();
+		}
+	},
+	error: function(xhr, type){
+		alert("错误！\n无法获取服务器信息。\ntype:"+type+"\n点击退出");
+		window.close();
+	}
+});
+
+/*
 new_year=new Date(2020,0,1,0,0,0,0);
 exam=new Date(2020,0,13,8,0,0,0);
 spring_festival=new Date(2020,0,25,0,0,0,0);
@@ -215,7 +241,19 @@ the_end_of_winter_vacation=new Date(2020,2,1,8,0,0,0);
 middle_exam=new Date(2021,6,1,8,0,0,0);
 high_exam=new Date(2024,6,1,8,0,0,0);
 die_time=new Date(2106,9,1,12,0,0,0);
+*/
 
+event.push(
+	setInterval(function(){
+		var num=0;
+		for (var i in message){
+			time(message[i],$("#now")[0],document.getElementsByName("time")[num],i);
+			num++;
+		}
+	},1)
+);
+
+/*
 event[0]=setInterval(function(){
 	time(new_year,document.getElementById("now"),document.getElementById("time1"),"new_year(2020)");
 	time(exam,document.getElementById("now"),document.getElementById("time2"),"FINAL-EXAM");
@@ -225,11 +263,11 @@ event[0]=setInterval(function(){
 	time(high_exam,document.getElementById("now"),document.getElementById("time6"),"HIGH-EXAM");
 	time(die_time,document.getElementById("now"),document.getElementById("time7"),"DIE_TIME(live-to-be-100)");
 },0);
-
+*/
 var colors=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
 var choice_color=[0,0,0,0,0,0];
 var fx=[1,1,1];
-event[event.length]=setInterval(function(){
+event.push(setInterval(function(){
 	for (var i=0;i<3;i++){
 		choice_color[i]+=fx[i]*Math.round(Math.random());
 		if (choice_color[i] >= colors.length-1){
@@ -241,8 +279,9 @@ event[event.length]=setInterval(function(){
 	
 	document.getElementsByClassName("wrap")[0].style.background="#"+colors[choice_color[0]]+colors[choice_color[1]]+colors[choice_color[2]];
 	document.getElementsByClassName("wrap")[1].style.background="#"+colors[15-choice_color[0]]+colors[15-choice_color[1]]+colors[15-choice_color[2]];
-},200);
-event[event.length]=setInterval(function(){
+},200)
+);
+event.push(setInterval(function(){
 	choice_color[5]++;
 	if (choice_color[5] >= 15){
 		choice_color[5]-=15;
@@ -255,8 +294,9 @@ event[event.length]=setInterval(function(){
 	if (choice_color[3] >= 15){
 		choice_color[3]-=15;
 	}
-	document.getElementById("time2").style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
-},0);
+	document.getElementsByName("time")[1].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
+},0)
+);
 </script>
 <footer style="float:right;color:#059;">MADE BY WZH</footer>
 </body>
