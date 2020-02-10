@@ -223,7 +223,7 @@ $.ajax({
 		eval("message="+data);
 		message=message["倒计时"];
 		if (typeof(message) == "object"){
-			alert(message["message"]);
+			(message["message"]!=="")?(alert(message["message"])):();
 			message=message["date"];
 		}else{
 			alert("获取信息出错！\n点击退出");
