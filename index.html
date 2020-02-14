@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
 <title>TIME</title>
 <style>
 h1,p{
@@ -223,7 +224,7 @@ $.ajax({
 		eval("message="+data);
 		message=message["倒计时"];
 		if (typeof(message) == "object"){
-			(message["message"]!=="")?(alert(message["message"])):();
+			(message["message"]!=="")?(alert(message["message"])):('');
 			message=message["date"];
 		}else{
 			alert("获取信息出错！\n点击退出");
