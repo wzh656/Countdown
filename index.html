@@ -112,6 +112,15 @@ console.log('控制台打印信息');
 
 </head>
 <body bgcolor="#fa6">
+<div style="position:absolute;right:0px;">
+	<button onclick="location.href='http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';">
+		Share with QQ Friends
+	</button>
+	<br>
+	<button onclick="location.href='https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';">
+		Share to QQ Space
+	</button>
+</div>
 <h1>倒计时</h1>
 <hr>
 <p id="now">看看你的浏览器，像是支持这个倒计时的吗？</p>
@@ -253,20 +262,45 @@ $.ajax({
 	url: "https://wzh656.github.io/notice/message.js",
 	dataType:'text',
 	async:false,
-	success: function(data) {
+	success: function(data){
 		eval("message="+data);
 		message=message["倒计时"];
 		if (typeof(message) == "object"){
+			localStorage.setItem("倒计时_服务器信息缓存",data);
 			(message["message"]!=="")?(alert(message["message"])):('');
 			message=message["date"];
 		}else{
-			alert("获取信息出错！\n点击退出");
-			window.close();
+			if (confirm("获取信息出错！\n是否使用上次获取成功时的缓存？")){
+				eval("message="+localStorage.getItem("倒计时_服务器信息缓存"));
+				message=message["倒计时"];
+				if (typeof(message) == "object"){
+					(message["message"]!=="")?(alert(message["message"])):('');
+					message=message["date"];
+				}else{
+					alert("使用缓存出错，点击退出");
+					window.close();
+				}
+			}else{
+				alert("点击退出");
+				window.close();
+			}
 		}
 	},
 	error: function(xhr, type){
-		alert("错误！\n无法获取服务器信息。\ntype:"+type+"\n点击退出");
-		window.close();
+		if (confirm("错误！\n无法获取服务器信息。\ntype:"+type+"\n是否使用上次获取成功时的缓存？")){
+				eval("message="+localStorage.getItem("倒计时_服务器信息缓存"));
+				message=message["倒计时"];
+				if (typeof(message) == "object"){
+					(message["message"]!=="")?(alert(message["message"])):('');
+					message=message["date"];
+				}else{
+					alert("使用缓存出错，点击退出");
+					window.close();
+				}
+			}else{
+				alert("点击退出");
+				window.close();
+			}
 	}
 });
 
