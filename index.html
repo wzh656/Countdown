@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta content="height=device-height, width=device-width, initial-scale=0.5, maximum-scale=0.6, user-scalable=1;" name="viewport" />
 <title>TIME</title>
 <style>
 h1,p{
@@ -83,56 +83,87 @@ button:hover {
 }
 
 
-div.wrap{
+div .wrap{
 	border:2px solid #000;
-	border-radius:50%;
+	border-radius:33.3%;
 }
-div.zhen{
+.clock1 .zhen{
 	position:absolute;
-	left:100px;
-	top:100px;
+	left:50%;
+	top:25%;
+	transform-origin:0% 50%;
+	border-radius:1px;
+}
+.clock2 .zhen{
+	position:absolute;
+	left:50%;
+	top:75%;
 	transform-origin:0% 50%;
 	border-radius:1px;
 }
 </style>
 
 <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>
+eruda.init();
+console.log('控制台打印信息');
+</script>
 
 </head>
 <body bgcolor="#fa6">
 <h1>倒计时</h1>
 <hr>
 <p id="now">看看你的浏览器，像是支持这个倒计时的吗？</p>
-<div class="clock" style="position:fixed;top:6%;left:70%;">
-	<div class="wrap" style="width:200px;height:200px;">跳动的钟</div>
-	<div class="zhen" style="width:100px;height:2px;background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
-	<div class="zhen" style="width:85.714px;height:2px;background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
-	<div class="zhen" style="width:71.429px;height:2px;background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
-	<div class="zhen" style="width:57.143px;height:2px;background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
-	<div class="zhen" style="width:42.857px;height:2px;background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
-	<div class="zhen" style="width:28.571px;height:2px;background-color:#d33;">&nbsp;&nbsp;月针</div>
-	<div class="zhen" style="width:14.286px;height:2px;background-color:#f00;">年针</div>
+<div style="position:fixed;top:10%;right:0%;">
+	<div class="clock1">
+		<div class="wrap" style="width:200px;height:200px;">跳动的钟</div>
+		<div class="zhen" style="width:100px;height:2px;background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
+		<div class="zhen" style="width:85.714px;height:2px;background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
+		<div class="zhen" style="width:71.429px;height:2px;background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
+		<div class="zhen" style="width:57.143px;height:2px;background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
+		<div class="zhen" style="width:42.857px;height:2px;background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
+		<div class="zhen" style="width:28.571px;height:2px;background-color:#d33;">&nbsp;&nbsp;月针</div>
+		<div class="zhen" style="width:14.286px;height:2px;background-color:#f00;">年针</div>
+	</div>
+	<div class="clock2">
+		<div class="wrap" style="width:200px;height:200px;">平滑的钟</div>
+		<div class="zhen" style="width:100px;height:2px;background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
+		<div class="zhen" style="width:85.714px;height:2px;background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
+		<div class="zhen" style="width:71.429px;height:2px;background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
+		<div class="zhen" style="width:57.143px;height:2px;background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
+		<div class="zhen" style="width:42.857px;height:2px;background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
+		<div class="zhen" style="width:28.571px;height:2px;background-color:#d33;">&nbsp;&nbsp;月针</div>
+		<div class="zhen" style="width:14.286px;height:2px;background-color:#f00;">年针</div>
+	</div>
 </div>
-<div class="clock"  style="position:fixed;top:26%;left:70%;">
-	<div class="wrap" style="width:200px;height:200px;">平滑的钟</div>
-	<div class="zhen" style="width:100px;height:2px;background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
-	<div class="zhen" style="width:85.714px;height:2px;background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
-	<div class="zhen" style="width:71.429px;height:2px;background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
-	<div class="zhen" style="width:57.143px;height:2px;background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
-	<div class="zhen" style="width:42.857px;height:2px;background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
-	<div class="zhen" style="width:28.571px;height:2px;background-color:#d33;">&nbsp;&nbsp;月针</div>
-	<div class="zhen" style="width:14.286px;height:2px;background-color:#f00;">年针</div>
-</div>
-<button onclick="for (var i in event){clearTimeout(event[i]);};alert('STOP TIME\nsuccess');alert('BYE\n--FROM (TIME)');">STOP "TIME"</button>
+
+<script>
+clock_hide=false;
+function hide_clock(){
+	if (clock_hide){
+		$(".clock1,.clock2,.wrap,.zhen").fadeIn("slow");
+		$("button")[1].innerHTML="Hide Clock";
+	}else{
+		$(".clock1,.clock2,.wrap,.zhen").hide("slow");
+		$("button")[1].innerHTML="Show Clock";
+	}
+	clock_hide=!clock_hide;
+}
+</script>
+
+<button onclick="for (var i in event){clearTimeout(event[i]);};alert('STOP TIME\nSuccess');alert('BYE\n--<TIME>');">STOP "TIME"</button>
+<button onclick="hide_clock();">Hide clock</button>
+
 <hr>
 <div>
-	<div name="time" style="background-color:red;border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
-	<div name="time" style="color:red;background-color:#a63;border:2px solid #000;"></div>
-	<div name="time" style="color:#666;background-color:red;border:2px solid #000;"></div>
-	<div name="time" style="color:red;background-color:#eee;border:2px solid #000;"></div>
-	<div name="time" style="color:red;background-color:#a63;border:2px solid #000;"></div>
-	<div name="time" style="color:red;color:red;background-color:#a63;border:2px solid #000;"></div>
-	<div name="time" style="color:white;border:2px solid #000;"></div>
+	<div name="time" style="color:#0ff;background-color:#f00;border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
+	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:#0ff;background-color:#f00;border:2px solid #000;"></div>
+	<div name="time" style="/*color:#111;background-color:#eee;*/border:2px solid #000;"></div>
+	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:#fff;background-color:#000;border:2px solid #000;"></div>
 </div>
 <p id="m">Time goes so quickly,but what are you doing?Are you preparing for the exam or playing games like DESK-GOOD(GOOD-TABLE)?</p>
 <script>
@@ -149,28 +180,30 @@ function monthDay(){
 
 function time(exam,that1,that2,txt){
 	now=new Date();
-	document.getElementsByClassName("zhen")[0].style.transform="rotate("+((now.getMilliseconds())/1000*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[1].style.transform="rotate("+((now.getSeconds()/*+now.getMilliseconds()/1000*/)/60*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[2].style.transform="rotate("+((now.getMinutes()/*+now.getSeconds()/60+now.getMilliseconds()/1000/60*/)/60*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[3].style.transform="rotate("+((now.getHours()/*+now.getMinutes()/60+now.getSeconds()/60/60+now.getMilliseconds()/1000/60/60*/)/24*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[4].style.transform="rotate("+(((now.getDate()-1)/*+now.getHours()/24+now.getMinutes()/60/24+now.getSeconds()/60/60/24+now.getMilliseconds()/1000/60/60/24*/)/monthDay()*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[5].style.transform="rotate("+((now.getMonth()/*+(now.getDate()-1)/monthDay()+now.getHours()/24/monthDay()+now.getMinutes()/60/24/monthDay()+now.getSeconds()/60/60/24/monthDay()+now.getMilliseconds()/1000/60/60/24/monthDay()*/)/12*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[6].style.transform="rotate("+((now.getYear()/*+now.getMonth()/12+(now.getDate()-1)/monthDay()/12+now.getHours()/24/monthDay()/12+now.getMinutes()/60/24/monthDay()/12+now.getSeconds()/60/60/24/monthDay()/12+now.getMilliseconds()/1000/60/60/24/monthDay()/12*/)/100*360-90)+"deg)";
-	
-	document.getElementsByClassName("zhen")[7].style.transform="rotate("+((now.getMilliseconds())/1000*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[8].style.transform="rotate("+((now.getSeconds()+now.getMilliseconds()/1000)/60*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[9].style.transform="rotate("+((now.getMinutes()+now.getSeconds()/60+now.getMilliseconds()/1000/60)/60*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[10].style.transform="rotate("+((now.getHours()+now.getMinutes()/60+now.getSeconds()/60/60+now.getMilliseconds()/1000/60/60)/24*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[11].style.transform="rotate("+(((now.getDate()-1)+now.getHours()/24+now.getMinutes()/60/24+now.getSeconds()/60/60/24+now.getMilliseconds()/1000/60/60/24)/monthDay()*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[12].style.transform="rotate("+((now.getMonth()+(now.getDate()-1)/monthDay()+now.getHours()/24/monthDay()+now.getMinutes()/60/24/monthDay()+now.getSeconds()/60/60/24/monthDay()+now.getMilliseconds()/1000/60/60/24/monthDay())/12*360-90)+"deg)";
-	document.getElementsByClassName("zhen")[13].style.transform="rotate("+((now.getYear()+now.getMonth()/12+(now.getDate()-1)/monthDay()/12+now.getHours()/24/monthDay()/12+now.getMinutes()/60/24/monthDay()/12+now.getSeconds()/60/60/24/monthDay()/12+now.getMilliseconds()/1000/60/60/24/monthDay()/12)/100*360-90)+"deg)";
+	if (!clock_hide){
+		$(".clock1 .zhen")[0].style.transform="rotate("+((now.getMilliseconds())/1000*360-90)+"deg)";
+		$(".clock1 .zhen")[1].style.transform="rotate("+((now.getSeconds()/*+now.getMilliseconds()/1000*/)/60*360-90)+"deg)";
+		$(".clock1 .zhen")[2].style.transform="rotate("+((now.getMinutes()/*+now.getSeconds()/60+now.getMilliseconds()/1000/60*/)/60*360-90)+"deg)";
+		$(".clock1 .zhen")[3].style.transform="rotate("+((now.getHours()/*+now.getMinutes()/60+now.getSeconds()/60/60+now.getMilliseconds()/1000/60/60*/)/24*360-90)+"deg)";
+		$(".clock1 .zhen")[4].style.transform="rotate("+(((now.getDate()-1)/*+now.getHours()/24+now.getMinutes()/60/24+now.getSeconds()/60/60/24+now.getMilliseconds()/1000/60/60/24*/)/monthDay()*360-90)+"deg)";
+		$(".clock1 .zhen")[5].style.transform="rotate("+((now.getMonth()/*+(now.getDate()-1)/monthDay()+now.getHours()/24/monthDay()+now.getMinutes()/60/24/monthDay()+now.getSeconds()/60/60/24/monthDay()+now.getMilliseconds()/1000/60/60/24/monthDay()*/)/12*360-90)+"deg)";
+		$(".clock1 .zhen")[6].style.transform="rotate("+((now.getYear()/*+now.getMonth()/12+(now.getDate()-1)/monthDay()/12+now.getHours()/24/monthDay()/12+now.getMinutes()/60/24/monthDay()/12+now.getSeconds()/60/60/24/monthDay()/12+now.getMilliseconds()/1000/60/60/24/monthDay()/12*/)/100*360-90)+"deg)";
+		
+		$(".clock2 .zhen")[0].style.transform="rotate("+((now.getMilliseconds())/1000*360-90)+"deg)";
+		$(".clock2 .zhen")[1].style.transform="rotate("+((now.getSeconds()+now.getMilliseconds()/1000)/60*360-90)+"deg)";
+		$(".clock2 .zhen")[2].style.transform="rotate("+((now.getMinutes()+now.getSeconds()/60+now.getMilliseconds()/1000/60)/60*360-90)+"deg)";
+		$(".clock2 .zhen")[3].style.transform="rotate("+((now.getHours()+now.getMinutes()/60+now.getSeconds()/60/60+now.getMilliseconds()/1000/60/60)/24*360-90)+"deg)";
+		$(".clock2 .zhen")[4].style.transform="rotate("+(((now.getDate()-1)+now.getHours()/24+now.getMinutes()/60/24+now.getSeconds()/60/60/24+now.getMilliseconds()/1000/60/60/24)/monthDay()*360-90)+"deg)";
+		$(".clock2 .zhen")[5].style.transform="rotate("+((now.getMonth()+(now.getDate()-1)/monthDay()+now.getHours()/24/monthDay()+now.getMinutes()/60/24/monthDay()+now.getSeconds()/60/60/24/monthDay()+now.getMilliseconds()/1000/60/60/24/monthDay())/12*360-90)+"deg)";
+		$(".clock2 .zhen")[6].style.transform="rotate("+((now.getYear()+now.getMonth()/12+(now.getDate()-1)/monthDay()/12+now.getHours()/24/monthDay()/12+now.getMinutes()/60/24/monthDay()/12+now.getSeconds()/60/60/24/monthDay()/12+now.getMilliseconds()/1000/60/60/24/monthDay()/12)/100*360-90)+"deg)";
+	}
 	var between=exam-now;
 	
 	if (between >= 0){
 		that1.innerHTML="NOW:"+now+"("+Number(now)+")";
 		that2.innerHTML=
-			"<br><text style='background-color:black;color:white;'>"+txt+"</text>"+exam+"（I'm not sure.）<br>"+
-			"FROM <b>"+txt+"</b> ONLY：<br>"+
+			"<br><span style='background-color:black;color:white;'>"+txt+"</span>"+exam+"（I'm not sure.）<br>"+
+			"FROM 「<b>"+txt+"</b>」 ONLY：<br>"+
 			between+"ms<br>="+
 			(between/1000)+"s<br>="+
 			(between/1000/60)+"min<br>="+
@@ -191,8 +224,8 @@ function time(exam,that1,that2,txt){
 	}else{
 		between*=-1;
 		that2.innerHTML=
-			"<del><br><text style='background-color:black;color:white;'>"+txt+"</text>"+exam+"（I'm not sure.）<br>"+
-			"OH,YEAH.<b>"+txt+"</b> WAS ALREADY GONE BEFORE:<br>"+
+			"<del><br><span style='background-color:black;color:white;'>"+txt+"</span>"+exam+"（I'm not sure.）<br>"+
+			"OH,YEAH.「<b>"+txt+"</b>」 WAS ALREADY GONE BEFORE:<br>"+
 			between+"ms<br>="+
 			(between/1000)+"s<br>="+
 			(between/1000/60)+"min<br>="+
@@ -260,8 +293,8 @@ event.push(setInterval(function(){
 		}
 	}
 	
-	document.getElementsByClassName("wrap")[0].style.background="#"+colors[choice_color[0]]+colors[choice_color[1]]+colors[choice_color[2]];
-	document.getElementsByClassName("wrap")[1].style.background="#"+colors[15-choice_color[0]]+colors[15-choice_color[1]]+colors[15-choice_color[2]];
+	$(".wrap")[0].style.background="#"+colors[choice_color[0]]+colors[choice_color[1]]+colors[choice_color[2]];
+	$(".wrap")[1].style.background="#"+colors[15-choice_color[0]]+colors[15-choice_color[1]]+colors[15-choice_color[2]];
 },200)
 );
 event.push(setInterval(function(){
@@ -277,7 +310,7 @@ event.push(setInterval(function(){
 	if (choice_color[3] >= 15){
 		choice_color[3]-=15;
 	}
-	document.getElementsByName("time")[1].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
+	document.getElementsByName("time")[3].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
 },0)
 );
 </script>
