@@ -186,10 +186,10 @@ clock_hide=false;
 function hide_clock(){
 	if (clock_hide){
 		$(".clock1,.clock2,.wrap,.zhen").fadeIn("slow");
-		$("button")[3].innerHTML="Hide Clock";
+		$("button")[2].innerHTML="Hide Clock";
 	}else{
 		$(".clock1,.clock2,.wrap,.zhen").hide("slow");
-		$("button")[3].innerHTML="Show Clock";
+		$("button")[2].innerHTML="Show Clock";
 	}
 	clock_hide=!clock_hide;
 }
