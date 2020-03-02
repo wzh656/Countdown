@@ -108,7 +108,7 @@ div .wrap{
 </style>
 
 <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
-
+<script src="https://wzh656.github.io/notice/js/choice.js"></script>
 <!--
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
 <script>
@@ -119,14 +119,42 @@ console.log('控制台打印信息');
 
 </head>
 <body bgcolor="#fa6">
-<div style="position:absolute;right:0px;">
-	<button style="height:80px;width:100px;border-radius:25px;" onclick="location.href='http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';">
-		Share with QQ Friends
-	</button>
-	<button style="height:80px;width:100px;border-radius:25px;" onclick="location.href='https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';">
-		Share to QQ Space
-	</button>
-</div>
+<button onclick="share();" style="position:absolute;right:0px;height:66px;width:66px;font-size:20px;">Share</button>
+<script>
+function share(){
+	share_choice=new Choice(
+		[
+			{
+				name:"Share with QQ Friends",
+				onclick:function(){
+					location.href='http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';
+					share_chioce.close();
+				},
+				height:"66px",
+				font_size:"36px"
+			},
+			{
+				name:"Share in QQ Space",
+				onclick:function(){
+					location.href='https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';
+					share_choice.close();
+				},
+				height:"66px",
+				font_size:"36px"
+			},
+			{
+				name:"取消",
+				onclick:function(){
+					share_choice.close();
+				},
+				height:"66px",
+				font_size:"36px",
+				color:"red"
+			}
+		]
+	).show();
+}
+</script>
 <h1>倒计时</h1>
 <hr>
 <p id="now">看看你的浏览器，像是支持这个倒计时的吗？</p>
@@ -175,7 +203,7 @@ function hide_clock(){
 	<div name="time" style="color:#0ff;background-color:#f00;border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
 	<div name="time" style="color:#0ff;background-color:#f00;border:2px solid #000;"></div>
-	<div name="time" style="/*color:#111;background-color:#eee;*/border:2px solid #000;"></div>
+	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
 	<div name="time" style="color:#111;background-color:#eee;border:2px solid #000;"></div>
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
