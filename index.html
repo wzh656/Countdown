@@ -109,6 +109,7 @@ div .wrap{
 
 <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
 <script src="https://wzh656.github.io/notice/js/choice.js"></script>
+<script src="https://wzh656.github.io/notice/js/msgbox.js"></script>
 <!--
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
 <script>
@@ -119,7 +120,7 @@ console.log('控制台打印信息');
 
 </head>
 <body bgcolor="#fa6">
-<button onclick="share();" style="position:absolute;right:0px;height:66px;width:66px;font-size:20px;">Share</button>
+<button onclick="share();" style="position:absolute;top:0px;right:0px;height:66px;width:66px;font-size:20px;">Share</button>
 <script>
 function share(){
 	share_choice=new Choice(
@@ -127,7 +128,7 @@ function share(){
 			{
 				name:"Share with QQ Friends",
 				onclick:function(){
-					location.href='http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';
+					window.open('http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E');
 					share_chioce.close();
 				},
 				height:"66px",
@@ -136,7 +137,7 @@ function share(){
 			{
 				name:"Share in QQ Space",
 				onclick:function(){
-					location.href='https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E';
+					window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fwzh656.github.io%2FCountdown&sharesource=qzone&title=%E5%80%92%E8%AE%A1%E6%97%B6&pics=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1582193633481%26di%3D29b51f42036264035b6fa3523f943252%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fandroid-artworks.25pp.com%252Ffs08%252F2017%252F09%252F30%252F1%252F2_5e76f9b9dfb0837370bcbcc6fde37708_con.png&summary=%E5%8D%B3%E5%B0%86%E5%BC%80%E5%AD%A6%E8%80%83%EF%BC%8C%E7%9C%8B%E7%9C%8B%E8%BF%98%E6%9C%89%E5%87%A0%E5%A4%A9&desc=%5E%5E%5E%E5%80%92%E8%AE%A1%E6%97%B6%5E%5E%5E');
 					share_choice.close();
 				},
 				height:"66px",
@@ -290,7 +291,22 @@ function time(exam,that1,that2,txt){
 		//that2.innerHTML="<del>OH,YEAH."+txt+" ALREADY WENT BEFORE "+between+" MS.</del><hr>";
 	}
 }
-
+waiting=new Msgbox(
+	{
+		name:"加载中"
+	},
+	{
+		name:"获取服务器信息中……"
+	},[
+		{
+			name:"取消",
+			onclick:function(){
+				window.close();
+			}
+		}
+	],
+	"loading"
+).show();
 var message;
 $.ajax({
 	type: "get",
