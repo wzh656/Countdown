@@ -291,22 +291,31 @@ function time(exam,that1,that2,txt){
 		//that2.innerHTML="<del>OH,YEAH."+txt+" ALREADY WENT BEFORE "+between+" MS.</del><hr>";
 	}
 }
-waiting=new Msgbox(
-	{
-		name:"加载中"
-	},
-	{
-		name:"获取服务器信息中……"
-	},[
+
+var waiting;
+try{
+	waiting=new Msgbox(
 		{
-			name:"取消",
-			onclick:function(){
-				window.close();
+			name:"加载中",
+			font_size:"36px"
+		},
+		{
+			name:"获取服务器信息中……"
+		},[
+			{
+				name:"退出",
+				onclick:function(){
+					window.close();
+				},
+				width:"100%",
+				font_size:"26px"
 			}
-		}
-	],
-	"loading"
-).show();
+		],
+		"loading"
+	).show();
+}catch(err){
+	
+}
 var message;
 $.ajax({
 	type: "get",
@@ -320,6 +329,7 @@ $.ajax({
 			localStorage.setItem("倒计时_服务器信息缓存",data);
 			(message["message"]!=="")?(alert(message["message"])):('');
 			message=message["date"];
+			waiting.close();
 		}else{
 			if (confirm("获取信息出错！\n是否使用上次获取成功时的缓存？")){
 				eval("message="+localStorage.getItem("倒计时_服务器信息缓存"));
@@ -327,6 +337,7 @@ $.ajax({
 				if (typeof(message) == "object"){
 					(message["message"]!=="")?(alert(message["message"])):('');
 					message=message["date"];
+					waiting.close();
 				}else{
 					alert("使用缓存出错，点击退出");
 					window.close();
