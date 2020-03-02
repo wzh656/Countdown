@@ -197,6 +197,7 @@ function time(exam,that1,that2,txt){
 	var between=exam-now;
 	
 	if (between >= 0){
+		document.title="TIME:"+"("+Number(now)+")";
 		that1.innerHTML="NOW:"+now+"("+Number(now)+")";
 		that2.innerHTML=
 			"<br><span style='background-color:black;color:white;'>"+txt+"</span>"+exam+"（I'm not sure.）<br>"+
