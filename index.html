@@ -157,6 +157,7 @@ function hide_clock(){
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
 	<div name="time" style="color:#0ff;background-color:#f00;border:2px solid #000;"></div>
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
+	<div name="time" style="color:#111;background-color:#a63;border:2px solid #000;"></div>
 	<div name="time" style="color:#111;background-color:#eee;border:2px solid #000;"></div>
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
 	<div name="time" style="color:#59c;background-color:#a63;border:2px solid #000;"></div>
@@ -360,7 +361,7 @@ event.push(setInterval(function(){
 	if (choice_color[3] >= 15){
 		choice_color[3]-=15;
 	}
-	document.getElementsByName("time")[5].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
+	document.getElementsByName("time")[4].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
 },0)
 );
 </script>
