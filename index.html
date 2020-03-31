@@ -4,10 +4,16 @@
 <meta charset="UTF-8" />
 <meta content="height=device-height, width=device-width, initial-scale=0.5, maximum-scale=0.6, user-scalable=1" name="viewport" />
 <title>TIME</title>
+<!--网络模式-->
 <link href="https://wzh656.github.io/notice/css/button.css" rel="stylesheet" type="text/css" />
 <link href="https://wzh656.github.io/notice/css/title.css" rel="stylesheet" type="text/css" />
 <link href="https://wzh656.github.io/notice/css/clear.css" rel="stylesheet" type="text/css" />
 <link href="https://wzh656.github.io/notice/css/p.css" rel="stylesheet" type="text/css" />
+<!--本地模式-->
+<link href="./css/button.css" rel="stylesheet" type="text/css" />
+<link href="./css/title.css" rel="stylesheet" type="text/css" />
+<link href="./css/clear.css" rel="stylesheet" type="text/css" />
+<link href="./css/p.css" rel="stylesheet" type="text/css" />
 <style>
 p{
 	text-align: center;
@@ -58,9 +64,13 @@ div .wrap{
 }
 </style>
 
+<!--网络模式-->
 <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
 <script src="https://wzh656.github.io/notice/js/choice.js"></script>
 <script src="https://wzh656.github.io/notice/js/msgbox.js"></script>
+<!--本地模式-->
+<script src="./choice.js"></script>
+<script src="./msgbox.js"></script>
 
 <!--
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
@@ -153,7 +163,7 @@ function hide_clock(){
 <p id="now">看看你的浏览器，像是支持这个倒计时的吗？</p>
 <hr/>
 <div id="time_father">
-	<div name="time" style="border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
+	<div class="time" style="border:2px solid #000;">还不去换个浏览器（不关我的事，这一定没BUG）</div>
 </div>
 <p id="m">Time goes so quickly,but what are you doing?Are you preparing for the exam or playing games like DESK-GOOD(GOOD-TABLE)?</p>
 <script>
@@ -170,24 +180,24 @@ function monthDay(){
 
 function timeToWord(between){
 	return (
-		between[0]+"ms<br>="+
-		(between[0]/1000)+"s<br>="+
-		(between[0]/1000/60)+"min<br>="+
-		(between[0]/1000/60/60)+"h<br>="+
-		(between[0]/1000/60/60/24)+"days<br>合"+
-		Math.floor(between[0]/1000/60/60/24)+"days（约"+
-		Math.floor(between[0]/1000/60/60/24/365.2425)+"年+"+
-		Math.floor(between[0]/1000/60/60/24/7%52.1775)+"周+"+
-		Math.floor(between[0]/1000/60/60/24%7)+"天）"+
-		Math.floor(between[0]/1000/60/60%24)+"h"+
-		Math.floor(between[0]/1000/60%60)+"min"+
-		Math.floor(between[0]/1000%60)+"s"+
-		Math.floor(between[0]%1000)+"ms<br>"
+		between+"ms<br>="+
+		(between/1000)+"s<br>="+
+		(between/1000/60)+"min<br>="+
+		(between/1000/60/60)+"h<br>="+
+		(between/1000/60/60/24)+"days<br>合"+
+		Math.floor(between/1000/60/60/24)+"days（约"+
+		Math.floor(between/1000/60/60/24/365.2425)+"年+"+
+		Math.floor(between/1000/60/60/24/7%52.1775)+"周+"+
+		Math.floor(between/1000/60/60/24%7)+"天）"+
+		Math.floor(between/1000/60/60%24)+"h"+
+		Math.floor(between/1000/60%60)+"min"+
+		Math.floor(between/1000%60)+"s"+
+		Math.floor(between%1000)+"ms<br>"
 	);
 }
 
-function time(index, name, msg){
-	now = Number(new Date());
+function time(index, decision, msg){
+	now = new Date();
 	if (!clock_hide){
 		$(".clock1 .zhen")[0].style.transform="rotate("+((now.getMilliseconds())/1000*360-90)+"deg)";
 		$(".clock1 .zhen")[1].style.transform="rotate("+((now.getSeconds()/*+now.getMilliseconds()/1000*/)/60*360-90)+"deg)";
@@ -207,18 +217,20 @@ function time(index, name, msg){
 	}
 	var between = [msg["start"]-now, now-msg["end"]];
 	
+	$(".time")[index].style.color = msg["color"];
+	$(".time")[index].style.backgroundColor = msg["background-color"];
 	if (between[0] > 0){ // -will
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
-			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span>"+exam+"<br>"+
-			"FROM 「<b>"+decision+"</b>(will将来时)"+
+			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"FROM 「<b>"+decision+"</b>(will将来时)」"+
 				(
-					msg["start"]==msg["end"]?
-					"非延续性":
-					"持续"+timeToWord(msg["end"]-msg["start"])
+					Number(msg["start"]) == Number(msg["end"])?
+					"非延续性（"+msg["start"]+"）":
+					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
 				)+
-			"」 ONLY：<br>"+
+			" ONLY：<br>"+
 			timeToWord(between[0])
 			" LATER<hr/>";
 		;
@@ -226,14 +238,14 @@ function time(index, name, msg){
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
-			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span>"+exam+"<br>"+
-			"FROM 「<b>"+decision+"</b>(ing正在进行时)"+
+			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"FROM 「<b>"+decision+"</b>(ing正在进行时)」"+
 				(
-					msg["start"]==msg["end"]?
-					"非延续性":
-					"持续"+timeToWord(msg["end"]-msg["start"])
+					Number(msg["start"]) == Number(msg["end"])?
+					"非延续性（"+msg["start"]+"）":
+					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
 				)+
-			"」 ONLY：<br>"+
+			" ONLY：<br>"+
 			timeToWord(between[1])
 			" LATER<hr/>";
 		;
@@ -241,14 +253,14 @@ function time(index, name, msg){
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
-			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span>"+exam+"<br>"+
-			"FROM 「<b>"+decision+"</b>(ed过去/完成时)"+
+			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"FROM 「<b>"+decision+"</b>(ed过去/完成时)」"+
 				(
-					msg["start"]==msg["end"]?
-					"非延续性":
-					"持续"+timeToWord(msg["end"]-msg["start"])
+					Number(msg["start"]) == Number(msg["end"])?
+					"非延续性（"+msg["start"]+"）":
+					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
 				)+
-			"」 ALREADY WENT BEFORE：<br>"+
+			" ALREADY WENT BEFORE：<br>"+
 			timeToWord(between[1])
 			" AGO<hr/>";
 		;
@@ -280,8 +292,8 @@ var message;
 $.ajax({
 	type: "get",
 	url: "https://wzh656.github.io/notice/Countdown.js",
-	dataType:'text',
-	async:false,
+	dataType: 'text',
+	async: false,
 	success: function(data){
 		eval("message="+data);
 		if (typeof(message) == "object"){
@@ -326,18 +338,26 @@ $.ajax({
 	}
 });
 
-for (var i=0;i<message["date"].length-1;i++){
-	$("#time_father")[0].innerHTML+=`<div name="time" style="border:2px solid #000;"></div>`;
+for (var i=0;i<Object.keys(message["date"]).length-1;i++){
+	$("#time_father")[0].innerHTML+=`<div class="time" style="border:2px solid #000;"></div>`;
 }
-event.push(
+
+for (let i in message["date"]){
+	event.push(
+		setInterval(function (){
+			time(Object.keys(message["date"]).findIndex(x => x == i), i, message["date"][i]);
+		},10)
+	)
+}
+/* event.push(
 	setInterval(function(){
 		var index=0;
-		for (var i in message){
+		for (var i in message["date"]){
 			time(index, i, message["date"][i]);
 			index++;
 		}
 	},1)
-);
+); */
 
 var colors=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
 var choice_color=[0,0,0,0,0,0];
@@ -369,9 +389,8 @@ event.push(setInterval(function(){
 	if (choice_color[3] >= 15){
 		choice_color[3]-=15;
 	}
-	document.getElementsByName("time")[message["color"]].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
+	$(".time")[message["color"]].style.color="#"+colors[choice_color[3]]+colors[choice_color[4]]+colors[choice_color[5]];
 },0));
-alert()
 </script>
 <footer style="float:right;color:#059;">MADE BY WZH</footer>
 </body>
