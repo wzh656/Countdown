@@ -253,7 +253,7 @@ function time(index, decision, msg){
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
-			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"<br><del><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
 			"FROM 「<b>"+decision+"</b>(ed过去/完成时)」"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
@@ -262,7 +262,7 @@ function time(index, decision, msg){
 				)+
 			" ALREADY WENT BEFORE：<br>"+
 			timeToWord(between[1])
-			" AGO<hr/>";
+			" AGO</del><hr/>";
 		;
 	}
 }
