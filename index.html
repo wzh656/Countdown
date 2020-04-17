@@ -237,8 +237,8 @@ function time(index, decision, msg){
 					"非延续性（"+msg["start"]+"）":
 					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
 				)+
-			" ONLY：<br>"+
-			timeToWord(between[1])
+			"OVER ONLY：<br>"+
+			timeToWord(-between[1])
 			" LATER<hr/>";
 		;
 	}else{ // -ed
