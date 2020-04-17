@@ -5,10 +5,13 @@
 <meta content="height=device-height, width=device-width, initial-scale=0.5, maximum-scale=0.6, user-scalable=1" name="viewport" />
 <title>TIME</title>
 
-<link href="https://wzh656.github.io/notice/css/button.css" rel="stylesheet" type="text/css" />
+<link href="https://wzh656.github.io/notice/css/floatButton.css" rel="stylesheet" type="text/css" />
+<link href="https://wzh656.github.io/notice/css/hwkt-button.css" rel="stylesheet" type="text/css" />
+<link href="https://wzh656.github.io/notice/css/kt-title.css" rel="stylesheet" type="text/css" />
 <link href="https://wzh656.github.io/notice/css/title.css" rel="stylesheet" type="text/css" />
 <link href="https://wzh656.github.io/notice/css/clear.css" rel="stylesheet" type="text/css" />
-<link href="https://wzh656.github.io/notice/css/p.css" rel="stylesheet" type="text/css" />
+<link href="https://wzh656.github.io/notice/css/fzybxskt-p.css" rel="stylesheet" type="text/css" />
+
 
 <style>
 p{
@@ -74,7 +77,7 @@ console.log('控制台打印信息');
 
 </head>
 <body bgcolor="#fa6">
-<button onclick="share();" style="position:absolute;top:0px;right:0px;height:66px;width:66px;font-size:20px;">Share</button>
+<button onclick="share();" style="position:absolute;top:0px;right:0px;height:66px;width:66px;font-size:20px;" class="floatButton hwkt">Share</button>
 <script>
 function share(){
 	share_choice=new Choice(
@@ -110,7 +113,7 @@ function share(){
 	).show();
 }
 </script>
-<h1>倒计时</h1>
+<h1 class="kt title">倒计时</h1>
 <hr/>
 <div style="position:fixed;top:10%;right:0%;">
 	<div class="clock1">
@@ -149,8 +152,8 @@ function hide_clock(){
 }
 </script>
 
-<button onclick="for (var i in event){clearTimeout(event[i]);};alert('STOP TIME\nSuccess');alert('BYE\n--<TIME>');">STOP "TIME"</button>
-<button onclick="hide_clock();">Hide clock</button>
+<button onclick="for (var i in event){clearTimeout(event[i]);};alert('STOP TIME\nSuccess');alert('BYE\n--<TIME>');" class="floatButton hwkt">STOP "TIME"</button>
+<button onclick="hide_clock();" class="floatButton hwkt">Hide clock</button>
 
 <p id="now">看看你的浏览器，像是支持这个倒计时的吗？</p>
 <hr/>
