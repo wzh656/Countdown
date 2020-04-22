@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "electron .",
-		"package": "electron-packager . 倒计时 --platform=win32 --arch=x64 --icon=./icon.ico --out=./out --asar --app-version=3.0.0 --overwrite --ignore=node_modules --electron-version 1.4.13 --registry=https://registry.npm.taobao.org/"
+		"package": "electron-packager . 倒计时 --platform=win32 --arch=x64 --icon=./icon.ico --out=./out --asar --app-version=3.0.0 --overwrite --ignore=.git --electron-version 1.4.13 --registry=https://registry.npm.taobao.org/"
 	},
 	"author": "",
 	"license": "ISC"
