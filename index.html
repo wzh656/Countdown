@@ -2,8 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<meta content="height=device-height, width=device-width, initial-scale=0.5, maximum-scale=0.6, user-scalable=1" name="viewport" />
+<meta content="width=device-width, initial-scale=0.5, maximum-scale=0.66, user-scalable=1" name="viewport" />
 <title>TIME</title>
+
+<!--icon-->
+<link rel="icon" href="./icon.png" type="image/x-icon"/>
 
 <link href="https://wzh656.github.io/notice/css/floatButton.css" rel="stylesheet" type="text/css" />
 <link href="https://wzh656.github.io/notice/css/hwkt-button.css" rel="stylesheet" type="text/css" />
@@ -44,22 +47,51 @@ p{
 
 
 div .wrap{
-	border:2px solid #000;
-	border-radius:33.3%;
+	border: 2px solid #000;
+	border-radius: 33.3%;
+	width: 21vw;
+	height: 21vw;
 }
 .clock1 .zhen{
-	position:absolute;
-	left:50%;
-	top:25%;
-	transform-origin:0% 50%;
-	border-radius:1px;
+	height: 0.68vw;
+	position: absolute;
+	left: 50%;
+	top: 25%;
+	transform-origin: 0% 50%;
+	border-radius: 0.3vw;
 }
 .clock2 .zhen{
-	position:absolute;
-	left:50%;
-	top:75%;
-	transform-origin:0% 50%;
-	border-radius:1px;
+	height: 0.68vw;
+	position: absolute;
+	left: 50%;
+	top: 75%;
+	transform-origin: 0% 50%;
+	border-radius: 0.3vw;
+}
+.clock .zhen:nth-child(2){width: 10.5vw;}
+.clock .zhen:nth-child(3){width: 9vw;}
+.clock .zhen:nth-child(4){width: 7.5vw;}
+.clock .zhen:nth-child(5){width: 6vw;}
+.clock .zhen:nth-child(6){width: 4.5vw;}
+.clock .zhen:nth-child(7){width: 3vw;}
+.clock .zhen:nth-child(8){width: 1.5vw;}
+
+.time{
+	border:2px solid #000;
+	border-radius: 3vw;
+	padding: 1vw;
+	margin: 1vw;
+}
+.time.past{
+	height: 6vh;
+	overflow-y: hidden;
+}
+.time.past:hover{
+	height: auto;
+	overflow-y: visible;
+}
+.time center{
+	border-radius: 3vw;
 }
 </style>
 
@@ -115,26 +147,26 @@ function share(){
 </script>
 <h1 class="kt title">倒计时</h1>
 <hr/>
-<div style="position:fixed;top:10%;right:0%;">
-	<div class="clock1">
-		<div class="wrap" style="width:200px;height:200px;">跳动的钟</div>
-		<div class="zhen" style="width:100px;height:2px;background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
-		<div class="zhen" style="width:85.714px;height:2px;background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
-		<div class="zhen" style="width:71.429px;height:2px;background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
-		<div class="zhen" style="width:57.143px;height:2px;background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
-		<div class="zhen" style="width:42.857px;height:2px;background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
-		<div class="zhen" style="width:28.571px;height:2px;background-color:#d33;">&nbsp;&nbsp;月针</div>
-		<div class="zhen" style="width:14.286px;height:2px;background-color:#f00;">年针</div>
+<div style="position:fixed; top:5%; right:0%;">
+	<div class="clock clock1">
+		<div class="wrap">跳动的钟</div>
+		<div class="zhen" style="background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
+		<div class="zhen" style="background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
+		<div class="zhen" style="background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
+		<div class="zhen" style="background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
+		<div class="zhen" style="background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
+		<div class="zhen" style="background-color:#d33;">&nbsp;&nbsp;月针</div>
+		<div class="zhen" style="background-color:#f00;">年针</div>
 	</div>
-	<div class="clock2">
-		<div class="wrap" style="width:200px;height:200px;">平滑的钟</div>
-		<div class="zhen" style="width:100px;height:2px;background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
-		<div class="zhen" style="width:85.714px;height:2px;background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
-		<div class="zhen" style="width:71.429px;height:2px;background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
-		<div class="zhen" style="width:57.143px;height:2px;background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
-		<div class="zhen" style="width:42.857px;height:2px;background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
-		<div class="zhen" style="width:28.571px;height:2px;background-color:#d33;">&nbsp;&nbsp;月针</div>
-		<div class="zhen" style="width:14.286px;height:2px;background-color:#f00;">年针</div>
+	<div class="clock clock2">
+		<div class="wrap">平滑的钟</div>
+		<div class="zhen" style="background-color:#0f0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毫秒针</div>
+		<div class="zhen" style="background-color:#3d0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;秒针</div>
+		<div class="zhen" style="background-color:#5bb;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分针</div>
+		<div class="zhen" style="background-color:#880;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时针</div>
+		<div class="zhen" style="background-color:#b50;">&nbsp;&nbsp;&nbsp;&nbsp;日针</div>
+		<div class="zhen" style="background-color:#d33;">&nbsp;&nbsp;月针</div>
+		<div class="zhen" style="background-color:#f00;">年针</div>
 	</div>
 </div>
 
@@ -152,7 +184,7 @@ function hide_clock(){
 }
 </script>
 
-<button onclick="for (var i in event){clearTimeout(event[i]);};alert('STOP TIME\nSuccess');alert('BYE\n--<TIME>');" class="floatButton hwkt">STOP "TIME"</button>
+<button onclick="for (var i of events)clearTimeout(i); alert('STOP TIME\nSuccess'); alert('BYE\n--<TIME>');" class="floatButton hwkt">STOP "TIME"</button>
 <button onclick="hide_clock();" class="floatButton hwkt">Hide clock</button>
 
 <p id="now">看看你的浏览器，像是支持这个倒计时的吗？</p>
@@ -164,7 +196,7 @@ function hide_clock(){
 <script>
 m=document.getElementById("m");
 
-var event=new Array;
+var events=new Array;
 function monthDay(){
 	var date = new Date();
 	var year = date.getFullYear();
@@ -218,7 +250,7 @@ function time(index, decision, msg){
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
-			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"<br><center style='background-color:#000;color:#fff;'>"+decision+"</center><br>"+
 			"FROM 「<b>"+decision+"</b>(will将来时)」"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
@@ -233,7 +265,7 @@ function time(index, decision, msg){
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
-			"<br><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"<br><center style='background-color:#000;color:#fff;'>"+decision+"</center><br>"+
 			"FROM 「<b>"+decision+"</b>(ing正在进行时)」"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
@@ -247,8 +279,9 @@ function time(index, decision, msg){
 	}else{ // -ed
 		document.title="TIME:"+"("+Number(now)+")";
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
+		$(".time:eq("+index+")").addClass("past");
 		$(".time")[index].innerHTML=
-			"<br><del><span style='background-color:#000;color:#fff;'>"+decision+"</span><br>"+
+			"<br><del><center style='background-color:#000;color:#fff;'>"+decision+"</center><br>"+
 			"FROM 「<b>"+decision+"</b>(ed过去/完成时)」"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
@@ -334,17 +367,17 @@ $.ajax({
 });
 
 for (var i=0;i<Object.keys(message["date"]).length-1;i++){
-	$("#time_father")[0].innerHTML+=`<div class="time" style="border:2px solid #000;"></div>`;
+	$("#time_father")[0].innerHTML+=`<div class="time"></div>`;
 }
 
 for (let i in message["date"]){
-	event.push(
+	events.push(
 		setInterval(function (){
 			time(Object.keys(message["date"]).findIndex(x => x == i), i, message["date"][i]);
 		},10)
 	)
 }
-/* event.push(
+/* events.push(
 	setInterval(function(){
 		var index=0;
 		for (var i in message["date"]){
@@ -357,7 +390,7 @@ for (let i in message["date"]){
 var colors=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
 var choice_color=[0,0,0,0,0,0];
 var fx=[1,1,1];
-event.push(setInterval(function(){
+events.push(setInterval(function(){
 	for (var i=0;i<3;i++){
 		choice_color[i]+=fx[i]*Math.round(Math.random());
 		if (choice_color[i] >= colors.length-1){
@@ -371,7 +404,7 @@ event.push(setInterval(function(){
 	$(".wrap")[1].style.background="#"+colors[15-choice_color[0]]+colors[15-choice_color[1]]+colors[15-choice_color[2]];
 },200)
 );
-event.push(setInterval(function(){
+events.push(setInterval(function(){
 	choice_color[5]++;
 	if (choice_color[5] >= 15){
 		choice_color[5]-=15;
