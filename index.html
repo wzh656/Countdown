@@ -82,14 +82,28 @@ div .wrap{
 	padding: 1vw;
 	margin: 1vw;
 }
+.time h1,h2,h3,h4,h5,h6{
+	display: inline;
+}
+
 .time.past{
+	transition: height 1s, background-color 1s;
+	-moz-transition: height 1s, background-color 1s;	/* Firefox 4 */
+	-webkit-transition: height 1s, background-color 1s;	/* Safari 和 Chrome */
+	-o-transition: height 1s, background-color 1s;	/* Opera */
+	
 	height: 6vh;
 	overflow-y: hidden;
 }
+.time.past:not(:hover){
+	background-color: white !important;
+	color: black !important;
+}
 .time.past:hover{
-	height: auto;
+	height: 50vh;
 	overflow-y: visible;
 }
+
 .time center{
 	border-radius: 3vw;
 }
@@ -251,13 +265,13 @@ function time(index, decision, msg){
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
 			"<br><center style='background-color:#000;color:#fff;'>"+decision+"</center><br>"+
-			"FROM 「<b>"+decision+"</b>(will将来时)」"+
+			"FROM 「<b>"+decision+"</b>(will将来时)<br>"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
 					"非延续性（"+msg["start"]+"）":
-					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
+					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"-=>"+msg["end"]+"）"
 				)+
-			" ONLY：<br>"+
+			"」 ONLY：<br><br>"+
 			timeToWord(between[0])
 			" LATER<hr/>";
 		;
@@ -266,13 +280,13 @@ function time(index, decision, msg){
 		$("#now")[0].innerHTML="NOW:"+now+"("+Number(now)+")";
 		$(".time")[index].innerHTML=
 			"<br><center style='background-color:#000;color:#fff;'>"+decision+"</center><br>"+
-			"FROM 「<b>"+decision+"</b>(ing正在进行时)」"+
+			"FROM 「<b>"+decision+"</b>(ing正在进行时)<br>"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
 					"非延续性（"+msg["start"]+"）":
-					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
+					"持续"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"-=>"+msg["end"]+"）"
 				)+
-			"OVER ONLY：<br>"+
+			"」 OVER ONLY：<br><br>"+
 			timeToWord(-between[1])
 			" LATER<hr/>";
 		;
@@ -282,13 +296,13 @@ function time(index, decision, msg){
 		$(".time:eq("+index+")").addClass("past");
 		$(".time")[index].innerHTML=
 			"<br><del><center style='background-color:#000;color:#fff;'>"+decision+"</center><br>"+
-			"FROM 「<b>"+decision+"</b>(ed过去/完成时)」"+
+			"FROM 「<b>"+decision+"</b>(ed过去/完成时)<br>"+
 				(
 					Number(msg["start"]) == Number(msg["end"])?
 					"非延续性（"+msg["start"]+"）":
-					"持续<br>"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"~"+msg["end"]+"）"
+					"持续"+timeToWord(msg["end"]-msg["start"])+"（"+msg["start"]+"-=>"+msg["end"]+"）"
 				)+
-			" ALREADY WENT BEFORE：<br>"+
+			"」 ALREADY WENT BEFORE：<br><br>"+
 			timeToWord(between[1])
 			" AGO</del><hr/>";
 		;
